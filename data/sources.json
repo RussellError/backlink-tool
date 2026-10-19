@@ -1,0 +1,21 @@
+{
+  "_readme": "Starter list of public sites that commonly accept listings or profiles. These are NOT guaranteed backlinks: each one is fetched and assessed during discovery, and many will correctly end up as 'requires login'. Edit freely. Fields: name, url, category, hint_status (login|captcha|outreach|''), notes.",
+  "sources": [
+    {"name": "Curlie (open directory)", "url": "https://curlie.org/", "category": "directory", "hint_status": "", "notes": "Human-edited directory. Suggestions are reviewed by volunteer editors and may take a long time or be declined."},
+    {"name": "Product Hunt", "url": "https://www.producthunt.com/", "category": "submission_site", "hint_status": "login", "notes": "Launch listing; requires an account. Links are typically nofollow."},
+    {"name": "AlternativeTo", "url": "https://alternativeto.net/", "category": "submission_site", "hint_status": "login", "notes": "Software alternatives listing; account required."},
+    {"name": "BetaList", "url": "https://betalist.com/", "category": "submission_site", "hint_status": "login", "notes": "Startup submissions; review process and possible fee for fast-track."},
+    {"name": "Indie Hackers", "url": "https://www.indiehackers.com/", "category": "profile", "hint_status": "login", "notes": "Creator and product profiles; account required."},
+    {"name": "GitHub", "url": "https://github.com/", "category": "open_source", "hint_status": "login", "notes": "Project README, profile and documentation links. Requires your own account."},
+    {"name": "GitLab", "url": "https://gitlab.com/", "category": "github_docs", "hint_status": "login", "notes": "Project pages and docs. Requires your own account."},
+    {"name": "DEV Community", "url": "https://dev.to/", "category": "industry_blog", "hint_status": "login", "notes": "Contributed articles and profile; account required; many links are nofollow."},
+    {"name": "Hashnode", "url": "https://hashnode.com/", "category": "industry_blog", "hint_status": "login", "notes": "Developer blogging platform; account required."},
+    {"name": "Medium", "url": "https://medium.com/", "category": "industry_blog", "hint_status": "login", "notes": "Publications accept contributions; account required."},
+    {"name": "About.me", "url": "https://about.me/", "category": "profile", "hint_status": "login", "notes": "Personal profile page; account required."},
+    {"name": "Behance", "url": "https://www.behance.net/", "category": "profile", "hint_status": "login", "notes": "Creator portfolio profile; account required."},
+    {"name": "Dribbble", "url": "https://dribbble.com/", "category": "profile", "hint_status": "login", "notes": "Designer profile; account required."},
+    {"name": "Crunchbase", "url": "https://www.crunchbase.com/", "category": "profile", "hint_status": "login", "notes": "Company profile; account required, edits are moderated."},
+    {"name": "SaaSHub", "url": "https://www.saashub.com/", "category": "directory", "hint_status": "", "notes": "Software directory with a submission page; verify the rules on the site."},
+    {"name": "F6S", "url": "https://www.f6s.com/", "category": "profile", "hint_status": "login", "notes": "Startup and company profile; account required."}
+  ]
+}

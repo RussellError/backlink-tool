@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>{% block title %}Backlink Builder{% endblock %}</title>
+<link rel="icon" href="/static/icons/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body data-page="{{ page }}">
+<header class="topbar">
+  <a class="brand" href="/"><img src="/static/icons/icon.svg" alt="" width="26" height="26"><span>Backlink Builder</span></a>
+  <label class="site-picker"><span class="sr">Website</span>
+    <select id="target-select" aria-label="Website"></select></label>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <a href="/" {% if page == 'index' %}aria-current="page"{% endif %}>Dashboard</a>
+  <a href="/opportunities" {% if page == 'opportunities' %}aria-current="page"{% endif %}>Opportunities</a>
+  <a href="/backlinks" {% if page == 'backlinks' %}aria-current="page"{% endif %}>Backlinks</a>
+  <a href="/history" {% if page == 'history' %}aria-current="page"{% endif %}>History</a>
+  <a href="/settings" {% if page == 'settings' %}aria-current="page"{% endif %}>Settings</a>
+</nav>
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+<footer class="foot">
+  A discovered opportunity is not a backlink. Only links marked <strong>Live</strong> were actually found on the page.
+  Scores are heuristics, not Domain Authority. Nothing here guarantees rankings or indexing.
+</footer>
+<div id="toasts" role="status" aria-live="polite"></div>
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>

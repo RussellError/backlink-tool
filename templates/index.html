@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="no-site" class="card notice" hidden>
+  <h2>Add your website to begin</h2>
+  <p>Enter your site below, save it, then start discovery. Everything stays on this device.</p>
+</section>
+
+<details id="site-card" class="card" open>
+  <summary><h2>Your website</h2></summary>
+  <form id="site-form" autocomplete="off">
+    <input type="hidden" name="id">
+    <div class="grid-2">
+      <label>Website URL <input name="url" type="text" inputmode="url" placeholder="https://yoursite.com" required></label>
+      <label>Website name <input name="name" type="text" maxlength="120"></label>
+    </div>
+    <label>Description <textarea name="description" rows="3" maxlength="600" placeholder="One or two plain sentences about what the site offers"></textarea></label>
+    <div class="grid-2">
+      <label>Category <input name="category" type="text" maxlength="80" placeholder="e.g. developer tools"></label>
+      <label>Target keywords <input name="keywords" type="text" placeholder="comma separated"></label>
+      <label>Preferred languages <input name="languages" type="text" placeholder="English, Spanish"></label>
+      <label>Preferred countries <input name="countries" type="text" placeholder="US, UK"></label>
+      <label>Contact email <input name="contact_email" type="email" placeholder="needed by some submission forms"></label>
+    </div>
+    <fieldset>
+      <legend>Opportunity types (none selected = all)</legend>
+      <div id="opp-types" class="checks"></div>
+    </fieldset>
+    <div class="row"><button class="btn primary" type="submit">Save website</button>
+      <button class="btn ghost" type="button" id="new-site">Add another website</button></div>
+  </form>
+</details>
+
+<section class="card" id="discovery-card">
+  <h2>Discovery</h2>
+  <p class="muted">Gathers candidate pages from the sources that are switched on, then assesses each one. It does not search the whole internet. See <a href="/settings">Settings</a> for sources.</p>
+  <label>Reference pages (optional, one per line)
+    <textarea id="reference-urls" rows="2" placeholder="Pages that list sites like yours, e.g. a resource list or directory category"></textarea></label>
+  <div class="row">
+    <button class="btn primary" id="btn-discover" type="button">Start discovery</button>
+    <button class="btn" id="btn-pause" type="button" hidden>Pause</button>
+    <button class="btn" id="btn-resume" type="button" hidden>Resume</button>
+    <button class="btn danger" id="btn-cancel" type="button" hidden>Cancel</button>
+  </div>
+  <div id="discovery-status" class="status-line" aria-live="polite"></div>
+  <div id="sources-note" class="muted small"></div>
+</section>
+
+<section aria-labelledby="stats-h">
+  <h2 id="stats-h" class="sr">Statistics</h2>
+  <div id="stats" class="stats"></div>
+</section>
+
+<section class="card" id="jobs-card" hidden>
+  <h2>Running jobs</h2>
+  <div id="jobs"></div>
+</section>
+
+<section class="card">
+  <h2>Pipeline</h2>
+  <p class="muted small">Where the discovered opportunities currently sit.</p>
+  <div id="pipeline" class="pipeline"></div>
+</section>
+
+<section class="card">
+  <h2>Export</h2>
+  <div class="row wrap" id="exports"></div>
+</section>
+
+<section class="card">
+  <h2>Activity</h2>
+  <ul id="activity" class="log"></ul>
+</section>
+{% endblock %}

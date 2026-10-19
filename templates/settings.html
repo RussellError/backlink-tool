@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Settings - Backlink Builder{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>What this app can and cannot do</h2>
+  <ul class="plain">
+    <li><strong>Works with no paid service:</strong> starter list, GitHub public search, pages you paste, TXT/CSV import, manual entry, quality checks, submissions to permitted forms, backlink verification, outreach drafts, exports.</li>
+    <li><strong>Needs something you provide:</strong> broad web search needs a SearXNG instance URL (below). Without it, discovery is limited to the other sources.</li>
+    <li><strong>Never done automatically:</strong> CAPTCHA solving, logins, account creation, comment or forum posting, sending email.</li>
+    <li><strong>Site-specific integrations:</strong> none are built in. Generic forms are handled; per-domain rules live in <code>data/submissions.json</code>.</li>
+  </ul>
+  <div id="providers" class="chips"></div>
+</section>
+<form id="settings-form" class="stack">
+  <section class="card"><h3>Politeness and limits</h3>
+    <div class="grid-2">
+      <label>Delay between requests to one domain (s) <input name="per_domain_delay" type="number" step="0.5" min="0" max="60"></label>
+      <label>Request timeout (s) <input name="request_timeout" type="number" min="3" max="60"></label>
+      <label>Retries for temporary failures <input name="retry_limit" type="number" min="0" max="5"></label>
+      <label>First retry delay (s) <input name="retry_delay" type="number" step="0.5" min="0" max="60"></label>
+      <label>Max redirects <input name="max_redirects" type="number" min="0" max="10"></label>
+      <label>Max page size (KB) <input name="max_response_kb" type="number" min="64" max="8192"></label>
+      <label>Simultaneous submissions (1-3) <input name="submission_concurrency" type="number" min="1" max="3"></label>
+      <label>Max candidates per reference page <input name="max_candidates_per_run" type="number" min="10" max="1000"></label>
+    </div>
+    <label>User agent <input name="user_agent" maxlength="200"></label>
+  </section>
+  <section class="card"><h3>Submissions</h3>
+    <label class="check"><input type="checkbox" name="require_approval"> Require my approval before any automatic submission</label>
+    <div class="grid-2">
+      <label>Minimum quality score for "eligible" <input name="min_eligible_score" type="number" min="0" max="100"></label>
+      <label>Max automatic attempts per site <input name="max_submission_attempts" type="number" min="1" max="10"></label>
+      <label>First verification after (hours) <input name="verify_delay_hours" type="number" min="0" max="720"></label>
+      <label>Re-check live links every (hours) <input name="recheck_interval_hours" type="number" min="1" max="2160"></label>
+    </div>
+  </section>
+  <section class="card"><h3>Discovery sources</h3>
+    <label class="check"><input type="checkbox" name="enable_seed_sources"> Starter list (<code>data/sources.json</code>)</label>
+    <label class="check"><input type="checkbox" name="enable_github_search"> GitHub public search for awesome-style lists</label>
+    <label class="check"><input type="checkbox" name="broken_link_scan"> Look for dead links on resource pages</label>
+    <div class="grid-2">
+      <label>Dead-link domains to probe per page <input name="broken_link_max_checks" type="number" min="0" max="50"></label>
+      <label>Max search queries per run <input name="searxng_max_queries" type="number" min="0" max="40"></label>
+    </div>
+    <label>SearXNG instance URL (optional, must be a public https URL) <input name="searxng_url" type="text" inputmode="url" placeholder="https://searx.example.org"></label>
+    <p class="muted small">The instance must have JSON output enabled. A GitHub token can be supplied via the <code>GITHUB_TOKEN</code> environment variable; it is never stored by the app.</p>
+  </section>
+  <section class="card"><h3>Jobs and server</h3>
+    <label class="check"><input type="checkbox" name="auto_resume_jobs"> After a restart, resume unfinished discovery, assessment and verification jobs (submissions never resume by themselves)</label>
+    <label>Port (applies after restart) <input name="port" type="number" min="1024" max="65535"></label>
+    <p class="muted small">The server always listens on 127.0.0.1 only.</p>
+  </section>
+  <div class="row"><button class="btn primary" type="submit">Save settings</button></div>
+</form>
+{% endblock %}

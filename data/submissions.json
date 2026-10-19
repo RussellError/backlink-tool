@@ -1,0 +1,12 @@
+{
+  "_readme": "Per-domain submission profiles. 'automation' is 'manual_only' to forbid automatic submission for that domain, or 'allowed' to permit it when every generic safety check also passes. 'field_map' maps a form field name to one of: url, name, description, email, keywords, category, or a literal value prefixed with 'literal:'. Unknown domains are never auto-submitted unless the form passes all generic checks AND you approve the opportunity.",
+  "profiles": {
+    "producthunt.com": {"automation": "manual_only", "notes": "Account and human launch process required."},
+    "alternativeto.net": {"automation": "manual_only", "notes": "Account required."},
+    "github.com": {"automation": "manual_only", "notes": "Use your own account; pull requests must be written by a person."},
+    "gitlab.com": {"automation": "manual_only", "notes": "Use your own account."},
+    "medium.com": {"automation": "manual_only", "notes": "Editorial review."},
+    "dev.to": {"automation": "manual_only", "notes": "Account required."},
+    "crunchbase.com": {"automation": "manual_only", "notes": "Account and moderation required."}
+  }
+}

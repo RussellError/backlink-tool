@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Backlinks - Backlink Builder{% endblock %}
+{% block content %}
+<section class="card notice" id="no-site" hidden><h2>No website selected</h2><p>Add your website on the <a href="/">Dashboard</a> first.</p></section>
+<div id="job-bar"></div>
+<section class="card">
+  <h2>Backlink monitoring</h2>
+  <p class="muted">A backlink counts as <strong>Live</strong> only when the source page was fetched and a link to your site was found. A successful submission stays <em>Pending</em> until then.</p>
+  <div id="bl-summary" class="chips" role="group" aria-label="Filter by state"></div>
+  <div class="row wrap">
+    <button class="btn primary" id="btn-verify" type="button">Check due links</button>
+    <button class="btn" id="btn-verify-all" type="button">Re-check everything</button>
+  </div>
+</section>
+<details class="card"><summary><h3>Monitor a page you already know about</h3></summary>
+  <form id="bl-form" class="stack">
+    <label>Page that should link to your site <input name="source_url" type="text" inputmode="url" required placeholder="https://example.org/listing"></label>
+    <button class="btn" type="submit">Add and monitor</button>
+  </form>
+</details>
+<div id="bl-list" class="list"></div>
+<div class="row"><button class="btn ghost" id="more" type="button" hidden>Show more</button></div>
+{% endblock %}

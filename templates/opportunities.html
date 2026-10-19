@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Opportunities - Backlink Builder{% endblock %}
+{% block content %}
+<section class="card notice" id="no-site" hidden><h2>No website selected</h2><p>Add your website on the <a href="/">Dashboard</a> first.</p></section>
+<div id="job-bar"></div>
+<section class="card">
+  <h2>Opportunities</h2>
+  <div id="chips" class="chips" role="group" aria-label="Filter by status"></div>
+  <div class="grid-2">
+    <label>Category <select id="f-category"><option value="">All categories</option></select></label>
+    <label>Search <input id="f-q" type="search" placeholder="domain, title or URL"></label>
+  </div>
+  <div class="row wrap">
+    <button class="btn" id="btn-assess" type="button">Assess new</button>
+    <button class="btn" id="btn-approve-all" type="button">Approve all eligible</button>
+    <button class="btn primary" id="btn-submit" type="button">Start approved submissions</button>
+    <button class="btn" id="btn-outreach" type="button">Draft outreach for all</button>
+  </div>
+  <p class="muted small">Submissions only run for opportunities that are <em>eligible</em> and approved by you. Sites with CAPTCHA, login or anti-automation rules are never submitted automatically.</p>
+</section>
+
+<details class="card"><summary><h3>Add one manually</h3></summary>
+  <form id="add-form" class="stack">
+    <label>Page URL <input name="url" type="text" inputmode="url" required placeholder="https://directory.example/submit"></label>
+    <div class="grid-2">
+      <label>Category <select name="category" id="add-category"></select></label>
+      <label>Title (optional) <input name="title" maxlength="200"></label>
+    </div>
+    <label>Notes (optional) <input name="notes" maxlength="600"></label>
+    <button class="btn" type="submit">Add opportunity</button>
+  </form>
+</details>
+<details class="card"><summary><h3>Import from a file</h3></summary>
+  <form id="import-form" class="stack">
+    <p class="muted small">TXT: one URL per line. CSV: <code>url,category,title,notes</code> (only the first column is required).</p>
+    <label>File <input type="file" name="file" accept=".txt,.csv" required></label>
+    <label>Default category <select name="category" id="import-category"></select></label>
+    <button class="btn" type="submit">Import</button>
+    <div id="import-result" class="small"></div>
+  </form>
+</details>
+
+<div id="opp-list" class="list"></div>
+<div class="row"><button class="btn ghost" id="more" type="button" hidden>Show more</button></div>
+{% endblock %}

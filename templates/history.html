@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}History - Backlink Builder{% endblock %}
+{% block content %}
+<section class="card notice" id="no-site" hidden><h2>No website selected</h2><p>Add your website on the <a href="/">Dashboard</a> first.</p></section>
+<section class="card">
+  <h2>History</h2>
+  <div id="hist-tabs" class="chips" role="tablist" aria-label="History sections"></div>
+  <div id="hist-body" class="list"></div>
+</section>
+{% endblock %}
